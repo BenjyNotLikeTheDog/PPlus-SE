@@ -30,7 +30,7 @@ if %PURGE%==1 (
 
 call mount.bat || goto error
 
-ROBOCOPY "%BUILD_DIR:\=\\%Project+" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+." ^
+ROBOCOPY "%BUILD_DIR:\=\\%P+SE" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE." ^
     /E ^
     /NS ^
     /NP ^
@@ -38,10 +38,10 @@ ROBOCOPY "%BUILD_DIR:\=\\%Project+" "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project
     %PURGE_COMMAND%
 IF %ERRORLEVEL% GEQ 8 goto error
 
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\RSBE01.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\BOOST.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\NETPLAY.txt"
-"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\Project+\NETBOOST.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\RSBE01.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\BOOST.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\NETPLAY.txt"
+"%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\GCTRealMate.exe" -q "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\P+SE\NETBOOST.txt"
 
 fsutil file createnew "%SD_CARD_MOUNT_DRIVE_LETTER:\=\\%:\\DON'T PUT THIS BUILD ON A WII.txt" 0
 

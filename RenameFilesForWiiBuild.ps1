@@ -1,1 +1,1 @@
-(Get-Content ".\Build\Project+\BOOST.txt") -replace '#.include Source/Extras/Console.asm', '.include Source/Extras/Console.asm' | Out-File -encoding ASCII ".\Build\Project+\BOOST.txt"
+(Get-Content ".\Build\P+SE\BOOST.txt") -replace '#.include Source/Extras/Console.asm', '.include Source/Extras/Console.asm' | Out-File -encoding ASCII ".\Build\P+SE\BOOST.txt"

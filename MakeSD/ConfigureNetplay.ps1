@@ -1,39 +1,39 @@
 #Numbers of lines will probably need to change when edits to RSBE01.txt or BOOST.txt are made.
 
-copy "../Build/Project+/RSBE01.txt" "../Build/Project+/NETPLAY.txt" -Force -erroraction 'silentlycontinue'
-copy "../Build/Project+/BOOST.txt" "../Build/Project+/NETBOOST.txt" -Force -erroraction 'silentlycontinue'
-copy "../NetplayFiles/seal" "../Build/Project+/pf/toy/" -Force -Recurse -erroraction 'silentlycontinue'
-copy "../NetplayFiles/Netplay" "../Build/Project+/Source/" -Force -Recurse -erroraction 'silentlycontinue'
-copy "../NetplayFiles/dnet.cmnu" "../Build/Project+/pf/menu3/" -Force -erroraction 'silentlycontinue'
-del "../Build/Project+/pf/sound/netplaylist" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
-Copy-Item "../Build/Project+/pf/sound/tracklist" -Destination "../Build/Project+/pf/sound/netplaylist" -Force -Recurse -erroraction 'silentlycontinue'
-del "../Build/Project+/st/" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
+copy "../Build/P+SE/RSBE01.txt" "../Build/P+SE/NETPLAY.txt" -Force -erroraction 'silentlycontinue'
+copy "../Build/P+SE/BOOST.txt" "../Build/P+SE/NETBOOST.txt" -Force -erroraction 'silentlycontinue'
+copy "../NetplayFiles/seal" "../Build/P+SE/pf/toy/" -Force -Recurse -erroraction 'silentlycontinue'
+copy "../NetplayFiles/Netplay" "../Build/P+SE/Source/" -Force -Recurse -erroraction 'silentlycontinue'
+copy "../NetplayFiles/dnet.cmnu" "../Build/P+SE/pf/menu3/" -Force -erroraction 'silentlycontinue'
+del "../Build/P+SE/pf/sound/netplaylist" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
+Copy-Item "../Build/P+SE/pf/sound/tracklist" -Destination "../Build/P+SE/pf/sound/netplaylist" -Force -Recurse -erroraction 'silentlycontinue'
+del "../Build/P+SE/st/" -Confirm:$false -Recurse -erroraction 'silentlycontinue'
 
 #NETPLAY.txt
-$netplayPath = "..\Build\Project+\NETPLAY.txt"
-(Get-Content $netplayPath).replace('Source/Project+/MultiGCT.asm', 'Source/Netplay/Net-MultiGCT.asm') | Set-Content $netplayPath
-(Get-Content $netplayPath).replace('Source/Project+/CodeMenu.asm', 'Source/Netplay/Net-CodeMenu.asm') | Set-Content $netplayPath
+$netplayPath = "..\Build\P+SE\NETPLAY.txt"
+(Get-Content $netplayPath).replace('Source/P+SE/MultiGCT.asm', 'Source/Netplay/Net-MultiGCT.asm') | Set-Content $netplayPath
+(Get-Content $netplayPath).replace('Source/P+SE/CodeMenu.asm', 'Source/Netplay/Net-CodeMenu.asm') | Set-Content $netplayPath
 $netplayContent = Get-Content $netplayPath
 $netplayContent[15] += "`r`n`r`n# Netplay Codeset Differences:`r`n"
 $netplayContent[15] += "#`r`n"
 $netplayContent[15] += "# NETBOOST.GCT is loaded instead of BOOST.GCT (see bottom of codeset)`r`n"
-$netplayContent[15] += '# "Source/Netplay/Net-CodeMenu.asm" is loaded instead of "Source/Project+/CodeMenu.asm"'
+$netplayContent[15] += '# "Source/Netplay/Net-CodeMenu.asm" is loaded instead of "Source/P+SE/CodeMenu.asm"'
 $netplayContent[15] += "`r`n#`r`n"
 $netplayContent[15] += "#############################################################################"
 $netplayContent | Set-Content $netplayPath
 
 #NETBOOST.txt
-$netboostPath = "..\Build\Project+\NETBOOST.txt"
-(Get-Content $netboostPath).replace('Source/Project+/StageFiles.asm', 'Source/Netplay/Net-StageFiles.asm') | Set-Content $netboostPath
+$netboostPath = "..\Build\P+SE\NETBOOST.txt"
+(Get-Content $netboostPath).replace('Source/P+SE/StageFiles.asm', 'Source/Netplay/Net-StageFiles.asm') | Set-Content $netboostPath
 (Get-Content $netboostPath).replace('.include Source/Extras/Console.asm', '#.include Source/Extras/Console.asm') | Set-Content $netboostPath
 (Get-Content $netboostPath).replace('#.include Source/Extras/Netplay.asm', '.include Source/Extras/Netplay.asm') | Set-Content $netboostPath
 
 #Net-MultiGCT
-(Get-Content "..\Build\Project+\Source\Project+\MultiGCT.asm") -replace 'BOOST.GCT', 'NETBOOST.GCT' | Out-File -encoding ASCII "..\Build\Project+\Source\Netplay\Net-MultiGCT.asm"
+(Get-Content "..\Build\P+SE\Source\Project+\MultiGCT.asm") -replace 'BOOST.GCT', 'NETBOOST.GCT' | Out-File -encoding ASCII "..\Build\P+SE\Source\Netplay\Net-MultiGCT.asm"
 
 #Net-StageFiles
-$stagefilesPath = "..\Build\Project+\Source\Netplay\Net-StageFiles.asm"
-(Get-Content "..\Build\Project+\Source\Project+\StageFiles.asm") -replace '/sound/tracklist/', '/sound/netplaylist/' | Out-File -encoding ASCII $stagefilesPath
+$stagefilesPath = "..\Build\P+SE\Source\Netplay\Net-StageFiles.asm"
+(Get-Content "..\Build\P+SE\Source\Project+\StageFiles.asm") -replace '/sound/tracklist/', '/sound/netplaylist/' | Out-File -encoding ASCII $stagefilesPath
 (Get-Content $stagefilesPath).replace('source/Project+/MyMusic.asm', 'source/Netplay/Net-MyMusic.asm') | Set-Content $stagefilesPath
 $stagefilesContent = Get-Content $stagefilesPath
 $stagefilesContent[0] = "#`r`n"
@@ -44,7 +44,7 @@ $stagefilesContent[0] += "`r`n#`r`n#################################"
 $stagefilesContent | Set-Content $stagefilesPath
 
 #RSBE01.txt
-$rsbe01Path = "..\Build\Project+\RSBE01.txt"
+$rsbe01Path = "..\Build\P+SE\RSBE01.txt"
 $strapcode = Select-String -Path $rsbe01Path -Pattern "046CADE8"
 if ($strapcode -eq $null)
 {
