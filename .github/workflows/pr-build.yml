@@ -99,7 +99,6 @@ jobs:
           xcopy /E /V /Y /I .\Dolphin\Sys .\Binary\x64\Sys
           xcopy /E /V /Y /I .\Dolphin\Games .\Binary\x64\Games
           xcopy /E /V /Y /I .\Dolphin\Launcher .\Binary\x64\Launcher
-          copy /b /v /y .\Ishiiruka\Changelog.txt .\Binary\x64\
           copy /b /v /y .\Dolphin\license.txt .\Binary\x64\
           copy /b /v /y .\Dolphin\portable.txt .\Binary\x64\
           copy /b /v /y .\Dolphin\vcruntime140_1.dll .\Binary\x64\
