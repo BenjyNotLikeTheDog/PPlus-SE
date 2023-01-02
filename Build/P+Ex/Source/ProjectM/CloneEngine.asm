@@ -872,6 +872,8 @@ Clone Classic & All-Star Result Data V1.21 [ds22, Dantarion, DukeItOut]
 .alias Charizard_Trophy = 0x75
 .alias Squirtle_Trophy = 0x75
 .alias Ivysaur_Trophy = 0x75
+.alias Shizue_Trophy = 0xF3
+.alias Shizue_Slot = 0x3F
 
 op b 0x34 @ $806E29DC	#Disables vBrawl Classic Mode trophy replacement behavior for the Poke Trio.
 
@@ -893,6 +895,7 @@ HOOK @ $806E29D0		# Character trophy to load for Classic
   li r29, Wario_Man_Trophy;cmpwi r28, Wario_Man_Slot;beq+ GotTrophy	# if it's Wario-Man's slot 
   li r29, Ridley_Trophy;cmpwi r28, Ridley_Slot;beq+ GotTrophy	# if it's Ridley's P+Ex slot 
   li r29, Waluigi_Trophy;cmpwi r28, Waluigi_Slot;beq+ GotTrophy	# if it's Waluigi's P+Ex slot 
+	li r29, Shizue_Trophy;	cmpwi r28, Shizue_Slot;	beq+ GotTrophy	# if it's Shizue's slot
   li r29, 0x1		# Default to Mario!!!
 GotTrophy:
   rlwinm r3, r29, 0, 16, 31
@@ -910,6 +913,7 @@ HOOK @ $806E47D8	# Character trophy to load for All-Star
   li r26, Wario_Man_Trophy_AllStar;cmpwi r4, Wario_Man_Slot; beq+ GotTrophy	# if it's Wario-Man's slot 
   li r26, Ridley_Trophy_AllStar;cmpwi r4, Ridley_Slot; beq+ GotTrophy	# if it's Ridley's P+Ex slot
   li r26, Waluigi_Trophy;cmpwi r4, Waluigi_Slot; beq+ GotTrophy	# if it's Waluigi's P+Ex slot  
+	li r26, Shizue_Trophy;	cmpwi r28, Shizue_Slot;	beq+ GotTrophy	# if it's Shizue's slot
   li r26, 0x5D		# Default to Mario Finale!!!
   b GotTrophy
 SquirtleTrophy:
