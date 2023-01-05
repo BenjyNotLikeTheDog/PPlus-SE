@@ -6,7 +6,7 @@ Note: This code menu was configured for use with Dolphin only, and IS NOT COMPAT
 	Attempting to use this code menu on console can (and likely will) damage your system.
 
 Adding Characters to Code Menu from "EX_Characters.txt"...
-[ADDED] Isabelle (Slot ID = 0x3F)
+[ADDED] Shadow (Slot ID = 0x56)
 
 Final Character List:
 	Bowser (Slot ID = 0x0C)
@@ -21,7 +21,6 @@ Final Character List:
 	Giga Bowser (Slot ID = 0x2C)
 	Ice Climbers (Slot ID = 0x10)
 	Ike (Slot ID = 0x25)
-	Isabelle (Slot ID = 0x3F)
 	Ivysaur (Slot ID = 0x22)
 	Jigglypuff (Slot ID = 0x27)
 	Kirby (Slot ID = 0x06)
@@ -44,6 +43,7 @@ Final Character List:
 	Ridley (Slot ID = 0x38)
 	Roy (Slot ID = 0x32)
 	Samus (Slot ID = 0x03)
+	Shadow (Slot ID = 0x56)
 	Sheik (Slot ID = 0x0F)
 	Snake (Slot ID = 0x2A)
 	Sonic (Slot ID = 0x2B)

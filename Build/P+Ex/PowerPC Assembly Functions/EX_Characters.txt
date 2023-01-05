@@ -1,4 +1,5 @@
 #Add new lines in the following format:
 #	"Character Name" = ID
 #See README.md for further details.
-"Isabelle" = 0x3F
+
+"Shadow" = 0x56
